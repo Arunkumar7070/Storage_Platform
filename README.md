@@ -72,8 +72,7 @@ uvicorn app.main:app --reload
 - Debugging takes more time than development
 - While Deplying At First I add the superbase server url but the render reject it the build get failed and I added the session url
 
-## Vs code
-I am used Vs code  Auto complete
+
 
 ## Reference
 
