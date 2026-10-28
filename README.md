@@ -19,6 +19,9 @@
 ### Storage Optimization
 - same file cant be uploded twice
 
+### Deployment 
+- I deployed the Backend on the render(https://storage-platform-at2y.onrender.com/docs)
+
 ### Tech stack
 - backend - Fastapi
 - db - Postgress on superbase
