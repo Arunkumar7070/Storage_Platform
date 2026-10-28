@@ -41,5 +41,5 @@ class Blob(base):
     id = Column(Integer, primary_key=True)
     sha256=Column(String(64), unique=True, nullable=False)
     size = Column(BigInteger, nullable=False)
-    storage_path = Column(String, nullable=False)
+    storage_key = Column(String, nullable=False)
     created_at = Column(DateTime, server_default=func.now())

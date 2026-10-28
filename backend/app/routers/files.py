@@ -2,7 +2,7 @@ from fastapi import APIRouter, Form,UploadFile
 from fastapi.responses import StreamingResponse
 from fastapi import File as FileParm
 from app.database import get_database
-from app.services import get_user,get_user_file,store_content,get_user_folder
+from app.services import get_user,get_user_file,store_content,get_user_folder,delete_file
 from app.models import File
 from app.storage import download_object
 
@@ -38,7 +38,7 @@ def download_file(file_id, user_id):
         file = get_user_file(db, file_id, user)
         file_name = file.name
         content_type = file.content_type or "application/octet-stream"
-        storage_key = file.blob.storage_path
+        storage_key = file.blob.storage_key
     body = download_object(storage_key)
 
     header = {"Content-Disposition": f"attachment; filename={file_name}"}
@@ -61,7 +61,7 @@ def remove_file(file_id, user_id=Form(...)):
     with get_database() as db:
         user = get_user(db, user_id)
         file = get_user_file(db, file_id, user)
-        remove_file(db, file)
+        delete_file(db, file)
      
 
     

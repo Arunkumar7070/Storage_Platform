@@ -62,8 +62,8 @@ def store_content(db,upload):
     return blob
 
 #Remove the blob if no files are referencing it
-def relese_blob(db,blob_id):
-    rem=db.qury(File).filter(File.blob_id==blob_id).count()
+def release_blob(db,blob_id):
+    rem=db.query(File).filter(File.blob_id==blob_id).count()
     if rem>0:
         return
     blob=db.query(Blob).filter(Blob.id==blob_id).first()
@@ -77,11 +77,11 @@ def delete_file(db,file):
     blob_id=file.blob_id
     db.delete(file)
     db.commit()
-    relese_blob(db,blob_id)
+    release_blob(db,blob_id)
 
 # Delete the folder 
 def delete_folder_tree(db,folder):
-    children_folder=db.query(Folder).filter(Folder.folder_id==folder.id).all()
+    children_folder=db.query(Folder).filter(Folder.parent_id==folder.id).all()
     for c in children_folder:
         delete_folder_tree(db,c)
     files=db.query(File).filter(File.folder_id==folder.id).all()
