@@ -2,6 +2,8 @@
 ### A simple storage system where user can upload their files and folder 
 - A simple working prototype(https://storage-platform-at2y.onrender.com/docs)
 
+## [Explanation Vide](https://drive.google.com/file/d/1kY7Q2E5zQya6Zzs-XzzS1YEs9txSe2l_/view?usp=sharing)
+
 ## Feature 
 ### Login
 - A user can register and Login
